@@ -45,7 +45,19 @@
     "git-widget-placeholder": "master"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.ZippoTest.statusTest">
+    <configuration name="ZippoTest.Test1" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssured" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
+      <option name="METHOD_NAME" value="Test1" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ZippoTest.statusTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
@@ -61,6 +73,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.ZippoTest.statusTest" />
+        <item itemvalue="TestNG.ZippoTest.Test1" />
       </list>
     </recent_temporary>
   </component>
