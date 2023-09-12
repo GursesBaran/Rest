@@ -119,4 +119,46 @@ public class ZippoTest {
                 .log().body()
                 .body("places.'place name'", hasSize(71));
     }
+    @Test
+    void multipleTest(){
+        given()
+                .when()
+                .get("http://api.zippopotam.us/tr/01000")
+                .then()
+                .log().body()
+                .statusCode(200)
+                .body("places",hasSize(71))
+                .body("places.'place name'", hasItem("Büyükdikili Köyü"))
+                .contentType(ContentType.JSON);
+    }
+
+    @Test
+    void pathParameterTest(){ // the parameters that are separated with / are called path parameters
+        given()
+                .pathParam("Country", "us")
+                .pathParam("ZipCode","90210")
+                .log().uri() // prints the request url
+                .when()
+                .get("http://api.zippopotam.us/{Country}/{ZipCode}")
+                .then()
+                .log().body()
+                .statusCode(200);
+    }
+
+    @Test
+    void pathParameterTest2(){
+        // send a get request for zipcodes between 90210 and 90213 and verify that in all responses the size
+        // of the places array is 1
+
+        for (int i=90210; i<=90213; i++){
+
+            given()
+                    .pathParam("ZipCode",i)
+                    .when()
+                    .get("http://api.zippopotam.us/us/{ZipCode}")
+                    .then()
+                    .log().body()
+                    .body("places",hasSize(1)); // checks the size of the array in the body
+        }
+    }
 }
