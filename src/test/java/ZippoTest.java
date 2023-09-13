@@ -6,7 +6,6 @@ import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -163,6 +162,7 @@ public class ZippoTest {
 
             given()
                     .pathParam("ZipCode", i)
+                    .log().uri()
                     .when()
                     .get("http://api.zippopotam.us/us/{ZipCode}")
                     .then()
