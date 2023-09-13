@@ -1,11 +1,18 @@
+import POJOClasses.Location;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.List;
+
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -245,5 +252,162 @@ public class ZippoTest {
                 .addPathParam("APIName", "users")
                 .addParam("page", 2)
                 .build();
+        responseSpecification = new ResponseSpecBuilder()
+                .log(LogDetail.BODY)
+                .expectStatusCode(200)
+                .expectContentType(ContentType.JSON)
+                .build();
+
+    }
+
+    @Test
+    void baseURITest() {
+        given()
+                .param("page", 3) // https://gorest.co.in/public/v1/users?page=3
+                .pathParam("APIName", "users")
+                .log().uri()
+                .when()
+                .get("/{APIName}")
+                .then()
+                .log().body()
+                .statusCode(200)
+                .body("meta.pagination.page", equalTo(3));
+    }
+
+    @Test
+    void requestAndResponseSpecTest() {
+        given()
+                .spec(requestSpecification)
+                .when()
+                .get("/{APIName}")
+                .then()
+                .body("meta.pagination.page", equalTo(3))
+                .spec(responseSpecification);
+    }
+
+    // Extract Data from JSON object
+
+    @Test
+    void extractStringData() {
+
+        String placeName = given()
+                .pathParam("Country", "us")
+                .pathParam("ZipCode", "90210")
+                .when()
+                .get("http://api.zippopotam.us/{Country}/{ZipCode}")
+                .then()
+                .statusCode(200)
+                .extract().path("places[0].'place name'"); // with extract method our request returns a value(not Objects)
+        // extract returns only one part of the response(the part that we specify in path method)
+        // we can assign it to a variable and use it however we want
+
+        System.out.println("placeName = " + placeName);
+    }
+
+    @Test
+    void extractIntData() {
+        int limit = given()
+                .spec(requestSpecification)
+                .when()
+                .get("/{APIName}")// https://gorest.co.in/public/v1/users?page=2
+                .then()
+                .spec(responseSpecification)
+                .extract().path("meta.pagination.limit");
+        // We are not allowed to assign an int to a String(cannot assign a type to another type)
+
+        System.out.println("limit = " + limit);
+    }
+
+    @Test
+    void extractListData() {
+
+        List<Integer> idList = given()
+                .spec(requestSpecification)
+                .when()
+                .get("/{APIName}")// https://gorest.co.in/public/v1/users?page=2
+                .then()
+                .spec(responseSpecification)
+                .extract().path("data.id");
+
+        System.out.println("idList.size() = " + idList.size());
+        System.out.println("idList.get(1) = " + idList.get(1));
+        Assert.assertTrue(idList.contains(5143698));
+    }
+
+
+    // send get request to https://gorest.co.in/public/v1/users.
+    // extract all names from data to a list
+    @Test
+    void extractListData1(){
+        List<String> nameList = given()
+                .pathParam("APIName","users")
+                .when()
+                .get("/{APIName}")
+                .then()
+                .spec(responseSpecification)
+                .extract().path("data.name");
+
+        System.out.println("nameList.size() = " + nameList.size());
+        System.out.println("nameList.get(5) = " + nameList.get(5));
+    }
+
+    @Test
+    void extractResponse(){
+        Response response = given()
+                .pathParam("APIName","users")
+                .when()
+                .get("/{APIName}")
+                .then()
+                .spec(responseSpecification)
+                .extract().response(); // return the entire response and assigns it to a Response object.
+        // By using this object we are able to reach any part of the response
+
+        int limit  = response.path("meta.pagination.limit");
+        System.out.println("limit = " + limit);
+
+        String current = response.path("meta.pagination.links.current");
+        System.out.println("current = " + current);
+
+        List<Integer> idList = response.path("data.id");
+        System.out.println("idList.size() = " + idList.size());
+
+        List<String> nameList = response.path("data.name" );
+
+        Assert.assertTrue(nameList.contains("Tejas Devar CPA"));
+    }
+
+    // POJO (Plain Old Java Object)
+    @Test
+    void extractJsonPOJO(){
+        Location location = given()
+                .pathParam("ZipCode",90210)
+                .when()
+                .get("http://api.zippopotam.us/us/{ZipCode}")
+                .then()
+                .log().body()
+                .extract().as(Location.class); // This request extracts the entire response and assigns it to Location class as a Location object
+        // We cannot extract the body partially (e.g. cannot extract place object separately)
+
+        System.out.println("location.getPostCode() = " + location.getPostCode());
+        System.out.println("location.getCountry() = " + location.getCountry());
+        System.out.println("location.getCountryAbbreviation() = " + location.getCountryAbbreviation());
+        System.out.println("location.getPlaces().get(0).getPlaceName() = " + location.getPlaces().get(0).getPlaceName());
+        System.out.println("location.getPlaces().get(0).getLongitude() = " + location.getPlaces().get(0).getLongitude());
+        System.out.println("location.getPlaces().get(0).getState() = " + location.getPlaces().get(0).getState());
+        System.out.println("location.getPlaces().get(0).getStateAbbreviation() = " + location.getPlaces().get(0).getStateAbbreviation());
+        System.out.println("location.getPlaces().get(0).getLatitude() = " + location.getPlaces().get(0).getLatitude());
+
+        // public class Location{                   public class Place{
+        //      String post code;                            String place name;
+        //      String country;                              String longitude;
+        //      String country abbreviation;                 String state;
+        //      List<Place> places;                          String state abbreviation;
+        //                                                   String latitude;
+        // }                                           }
+
+
+
     }
 }
+
+
