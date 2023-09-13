@@ -1,5 +1,13 @@
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.hasSize;
@@ -119,24 +127,25 @@ public class ZippoTest {
                 .log().body()
                 .body("places.'place name'", hasSize(71));
     }
+
     @Test
-    void multipleTest(){
+    void multipleTest() {
         given()
                 .when()
                 .get("http://api.zippopotam.us/tr/01000")
                 .then()
                 .log().body()
                 .statusCode(200)
-                .body("places",hasSize(71))
+                .body("places", hasSize(71))
                 .body("places.'place name'", hasItem("Büyükdikili Köyü"))
                 .contentType(ContentType.JSON);
     }
 
     @Test
-    void pathParameterTest(){ // the parameters that are separated with / are called path parameters
+    void pathParameterTest() { // the parameters that are separated with / are called path parameters
         given()
                 .pathParam("Country", "us")
-                .pathParam("ZipCode","90210")
+                .pathParam("ZipCode", "90210")
                 .log().uri() // prints the request url
                 .when()
                 .get("http://api.zippopotam.us/{Country}/{ZipCode}")
@@ -146,19 +155,95 @@ public class ZippoTest {
     }
 
     @Test
-    void pathParameterTest2(){
+    void pathParameterTest2() {
         // send a get request for zipcodes between 90210 and 90213 and verify that in all responses the size
         // of the places array is 1
 
-        for (int i=90210; i<=90213; i++){
+        for (int i = 90210; i <= 90213; i++) {
 
             given()
-                    .pathParam("ZipCode",i)
+                    .pathParam("ZipCode", i)
                     .when()
                     .get("http://api.zippopotam.us/us/{ZipCode}")
                     .then()
                     .log().body()
-                    .body("places",hasSize(1)); // checks the size of the array in the body
+                    .body("places", hasSize(1)); // checks the size of the array in the body
         }
+    }
+
+    @Test
+    void queryParamTest() { // If the parameter is separated by ? it is called query parameter
+        given()
+                .param("page", 3) // https://gorest.co.in/public/v1/users?page=3
+                .pathParam("APIName", "users")
+                .log().uri()
+                .when()
+                .get("https://gorest.co.in/public/v1/{APIName}")
+                .then()
+                .log().body()
+                .statusCode(200)
+                .body("meta.pagination.page", equalTo(3));
+    }
+
+    @Test
+    void queryParamTest1() {
+        // send the same request for the pages between 1-10 and check if
+        // the page number we send from request and page number we get from response are the same
+        for (int i = 1; i <= 10; i++) {
+            given()
+                    .param("page", i)
+                    .pathParam("APIName", "users")
+                    .log().uri()
+                    .when()
+                    .get("https://gorest.co.in/public/v1/{APIName}")
+                    .then()
+                    .log().body()
+                    .statusCode(200)
+                    .body("meta.pagination.page", equalTo(i));
+        }
+    }
+
+    @Test(dataProvider = "pageNumbers")
+    void queryParamTestWithDataProvider(int page) {
+        // send the same request for the pages between 1-10 and check if
+        // the page number we send from request and page number we get from response are the same
+
+        given()
+                .param("page", page)
+                .pathParam("APIName", "users")
+                .log().uri()
+                .when()
+                .get("https://gorest.co.in/public/v1/{APIName}")
+                .then()
+                .log().body()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .body("meta.pagination.page", equalTo(page));
+
+    }
+
+    @DataProvider
+    public Object[][] pageNumbers() {
+
+        Object[][] pageNumberList = {{1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}};
+
+        return pageNumberList;
+    }
+
+    RequestSpecification requestSpecification;
+    ResponseSpecification responseSpecification;
+
+    @BeforeClass
+    public void setUp() {
+        baseURI = "https://gorest.co.in/public/v1"; // if the request url in the request method doesn't have http part
+        // rest assured puts baseURI to the beginning of the url in the request method
+
+
+        requestSpecification = new RequestSpecBuilder()
+                .log(LogDetail.URI)
+                .setContentType(ContentType.JSON)
+                .addPathParam("APIName", "users")
+                .addParam("page", 2)
+                .build();
     }
 }
