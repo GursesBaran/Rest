@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7eb943f3-194d-4ca9-8592-9bacded32a14" name="Changes" comment="Rest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ZippoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ZippoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +41,24 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.ZippoTest.conentType">
-    <configuration name="ZippoTest.Test1" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.ZippoTest.checkCountryFromResponseBody">
+    <configuration name="ZippoTest.checkCountryFromResponseBody" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ZippoTest" />
-      <option name="METHOD_NAME" value="Test1" />
+      <option name="METHOD_NAME" value="checkCountryFromResponseBody" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZippoTest.checkStateFromResponse" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssured" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
+      <option name="METHOD_NAME" value="checkStateFromResponse" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -65,11 +78,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZippoTest.statusTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ZippoTest.contentTypeTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ZippoTest" />
-      <option name="METHOD_NAME" value="statusTest" />
+      <option name="METHOD_NAME" value="contentTypeTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZippoTest.statusCodeTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssured" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
+      <option name="METHOD_NAME" value="statusCodeTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -79,9 +104,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ZippoTest.checkCountryFromResponseBody" />
+        <item itemvalue="TestNG.ZippoTest.checkStateFromResponse" />
+        <item itemvalue="TestNG.ZippoTest.contentTypeTest" />
+        <item itemvalue="TestNG.ZippoTest.statusCodeTest" />
         <item itemvalue="TestNG.ZippoTest.conentType" />
-        <item itemvalue="TestNG.ZippoTest.statusTest" />
-        <item itemvalue="TestNG.ZippoTest.Test1" />
       </list>
     </recent_temporary>
   </component>
@@ -126,11 +153,43 @@
       <option name="project" value="LOCAL" />
       <updated>1694538501731</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Rest">
+      <option name="closed" value="true" />
+      <created>1694565270837</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694565270837</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rest" />
     <option name="LAST_COMMIT_MESSAGE" value="Rest" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/ZippoTest.java</url>
+          <line>27</line>
+          <properties class="ZippoTest" method="statusCodeTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/ZippoTest.java</url>
+          <line>38</line>
+          <properties class="ZippoTest" method="contentTypeTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -54,7 +54,7 @@ public class ZippoTest {
                 .log().body()
                 .body("country", equalTo("United States"));
 
-// Hamcrest: Lets us to test values from the response body
+// Hamcrest: Lets us test values from the response body
 
     }
 
