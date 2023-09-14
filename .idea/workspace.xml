@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7eb943f3-194d-4ca9-8592-9bacded32a14" name="Changes" comment="Rest" />
+    <list default="true" id="7eb943f3-194d-4ca9-8592-9bacded32a14" name="Changes" comment="Rest">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Task.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,12 +41,12 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.ZippoTest.pathParameterTest">
-    <configuration name="ZippoTest.baseURITest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.Task.task4">
+    <configuration name="Task.task1" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
-      <option name="METHOD_NAME" value="baseURITest" />
+      <option name="MAIN_CLASS_NAME" value="Task" />
+      <option name="METHOD_NAME" value="task1" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -51,11 +54,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZippoTest.pathParameterTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="Task.task2" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
-      <option name="METHOD_NAME" value="pathParameterTest" />
+      <option name="MAIN_CLASS_NAME" value="Task" />
+      <option name="METHOD_NAME" value="task2" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -63,11 +66,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZippoTest.queryParamTest1" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="Task.task3" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
-      <option name="METHOD_NAME" value="queryParamTest1" />
+      <option name="MAIN_CLASS_NAME" value="Task" />
+      <option name="METHOD_NAME" value="task3" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -75,11 +78,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZippoTest.queryParamTestWithDataProvider" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="Task.task4" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
-      <option name="METHOD_NAME" value="queryParamTestWithDataProvider" />
+      <option name="MAIN_CLASS_NAME" value="Task" />
+      <option name="METHOD_NAME" value="task4" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -87,11 +90,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZippoTest.requestAndResponseSpecTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ZippoTest.extractJsonPOJO" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ZippoTest" />
-      <option name="METHOD_NAME" value="requestAndResponseSpecTest" />
+      <option name="METHOD_NAME" value="extractJsonPOJO" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -101,11 +104,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.ZippoTest.pathParameterTest" />
-        <item itemvalue="TestNG.ZippoTest.baseURITest" />
-        <item itemvalue="TestNG.ZippoTest.requestAndResponseSpecTest" />
-        <item itemvalue="TestNG.ZippoTest.queryParamTestWithDataProvider" />
-        <item itemvalue="TestNG.ZippoTest.queryParamTest1" />
+        <item itemvalue="TestNG.Task.task4" />
+        <item itemvalue="TestNG.Task.task3" />
+        <item itemvalue="TestNG.Task.task2" />
+        <item itemvalue="TestNG.Task.task1" />
+        <item itemvalue="TestNG.ZippoTest.extractJsonPOJO" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694643077701</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Rest">
+      <option name="closed" value="true" />
+      <created>1694644404127</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694644404127</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
