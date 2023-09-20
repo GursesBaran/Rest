@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7eb943f3-194d-4ca9-8592-9bacded32a14" name="Changes" comment="Rest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GoRestUsersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GoRestUsersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/POJOClasses/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/POJOClasses/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ZippoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ZippoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,47 +41,12 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.GoRestUsersTest.getUserById">
-    <configuration name="GoRestUsersTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.ZippoTest.extractWithJsonPath2">
+    <configuration name="GoRestUsersTest.deleteUserNegativeTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GoRestUsersTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoRestUsersTest.CreateUserNegativeTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="RestAssured" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoRestUsersTest" />
-      <option name="METHOD_NAME" value="CreateUserNegativeTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoRestUsersTest.createNewUser" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="RestAssured" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoRestUsersTest" />
-      <option name="METHOD_NAME" value="createNewUser" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoRestUsersTest.createNewUserWithObject" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="RestAssured" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoRestUsersTest" />
-      <option name="METHOD_NAME" value="createNewUserWithObject" />
+      <option name="METHOD_NAME" value="deleteUserNegativeTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -102,13 +66,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ZippoTest.extractWithJsonPath" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssured" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
+      <option name="METHOD_NAME" value="extractWithJsonPath" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZippoTest.extractWithJsonPath1" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssured" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
+      <option name="METHOD_NAME" value="extractWithJsonPath1" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZippoTest.extractWithJsonPath2" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssured" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZippoTest" />
+      <option name="METHOD_NAME" value="extractWithJsonPath2" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ZippoTest.extractWithJsonPath2" />
+        <item itemvalue="TestNG.ZippoTest.extractWithJsonPath1" />
+        <item itemvalue="TestNG.ZippoTest.extractWithJsonPath" />
+        <item itemvalue="TestNG.GoRestUsersTest.deleteUserNegativeTest" />
         <item itemvalue="TestNG.GoRestUsersTest.getUserById" />
-        <item itemvalue="TestNG.GoRestUsersTest" />
-        <item itemvalue="TestNG.GoRestUsersTest.CreateUserNegativeTest" />
-        <item itemvalue="TestNG.GoRestUsersTest.createNewUserWithObject" />
-        <item itemvalue="TestNG.GoRestUsersTest.createNewUser" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694653828524</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Rest">
+      <option name="closed" value="true" />
+      <created>1695008115483</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1695008115483</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -221,12 +229,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/ZippoTest.java</url>
-          <line>195</line>
+          <line>196</line>
           <properties class="ZippoTest" method="queryParamTest1">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/ZippoTest.java</url>
+          <line>424</line>
+          <properties class="ZippoTest" method="extractWithJsonPath">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/ZippoTest.java</url>
+          <line>438</line>
+          <properties class="ZippoTest" method="extractWithJsonPath1">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

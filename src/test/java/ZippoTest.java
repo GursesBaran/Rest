@@ -1,4 +1,5 @@
 import POJOClasses.Location;
+import POJOClasses.User;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -338,9 +339,9 @@ public class ZippoTest {
     // send get request to https://gorest.co.in/public/v1/users.
     // extract all names from data to a list
     @Test
-    void extractListData1(){
+    void extractListData1() {
         List<String> nameList = given()
-                .pathParam("APIName","users")
+                .pathParam("APIName", "users")
                 .when()
                 .get("/{APIName}")
                 .then()
@@ -352,9 +353,9 @@ public class ZippoTest {
     }
 
     @Test
-    void extractResponse(){
+    void extractResponse() {
         Response response = given()
-                .pathParam("APIName","users")
+                .pathParam("APIName", "users")
                 .when()
                 .get("/{APIName}")
                 .then()
@@ -362,7 +363,7 @@ public class ZippoTest {
                 .extract().response(); // return the entire response and assigns it to a Response object.
         // By using this object we are able to reach any part of the response
 
-        int limit  = response.path("meta.pagination.limit");
+        int limit = response.path("meta.pagination.limit");
         System.out.println("limit = " + limit);
 
         String current = response.path("meta.pagination.links.current");
@@ -371,16 +372,16 @@ public class ZippoTest {
         List<Integer> idList = response.path("data.id");
         System.out.println("idList.size() = " + idList.size());
 
-        List<String> nameList = response.path("data.name" );
+        List<String> nameList = response.path("data.name");
 
         Assert.assertTrue(nameList.contains("Tejas Devar CPA"));
     }
 
     // POJO (Plain Old Java Object)
     @Test
-    void extractJsonPOJO(){
+    void extractJsonPOJO() {
         Location location = given()
-                .pathParam("ZipCode",90210)
+                .pathParam("ZipCode", 90210)
                 .when()
                 .get("http://api.zippopotam.us/us/{ZipCode}")
                 .then()
@@ -405,9 +406,62 @@ public class ZippoTest {
         //                                                   String latitude;
         // }                                           }
 
+    }
+    // extract.path() ==> we can extract only one value or list of that values
+    //                 String name = extract.path(data[0].name)
+    //                 List<String> nameList extract.path(data.name)
+    //
+    // extract.as() ==> We can extract the entire response body. It doesn't let us to extract one part of the body separately.
+    //                  So we need to create classes for the entire body.
+    //                  extract.as(Location.class)
+    //                  extract.as(Place.class) cannot extract like this
+    //
+    // extract.jsonPath() ==> We can extract the entire body as well as any part of the body. So if we need only one part of the
+    //                        body we don't need to create classes for the entire body
+    //                        extract.jsonPath().getObject(Location.class)
+    //                        extract.jsonPath().getObject(Place.class)
+
+    @Test
+    void extractWithJsonPath() {
+        User user = given()
+                .when()
+                .get("/users")
+                .then()
+                .log().body()
+                .extract().jsonPath().getObject("data[0]", User.class);
+        System.out.println(user.getEmail());
+        System.out.println(user.getName());
+        System.out.println(user.getId());
+
+    }
+
+    @Test
+    void extractWithJsonPath1() {
+        List<User> userList = given()
+                .when()
+                .get("/users")
+                .then()
+                //.log().body()
+                .extract().jsonPath().getList("data", User.class);
+        System.out.println("userList.get(0).getName() = " + userList.get(0).getName());
+    }
+
+    @Test
+    void extractWithJsonPath2() {
+        Response response = given()
+                .when()
+                .get("/users")
+                .then()
+                .log().body()
+                .extract().response();
+
+        System.out.println("response.jsonPath().get = " + response.jsonPath().getInt("meta.pagination.page"));
+        // response.path("meta.pagination.page");
+        System.out.println("response.jsonPath().get = " + response.jsonPath().getString("data[1].name"));
+        List<User> dataList = response.jsonPath().getList("data",User.class);
+        System.out.println("dataList.get(5).getName() = " + dataList.get(5).getName());
+        System.out.println("dataList.get(5) = " + dataList.get(5));
 
 
     }
 }
-
-
