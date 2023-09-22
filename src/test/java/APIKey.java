@@ -25,8 +25,8 @@ public class APIKey {
         void weatherAPI() {
 
             Response response = given()
-                    .param("key", "b2b9681a1a3946e694a201643231507")
-                    .param("q", "Buffalo")
+                    .param("key", "f6f93e6316b84ff0b7b223313232009")
+                    .param("q", "Lyndhurst")
                     .param("aqi", "no")
                     .log().uri()
                     .when()

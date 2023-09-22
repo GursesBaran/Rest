@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7eb943f3-194d-4ca9-8592-9bacded32a14" name="Changes" comment="Rest">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/APIKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/APIKey.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +41,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.APIKey.ApiKeyTest">
+  <component name="RunManager" selected="TestNG.APIKey.weatherAPI">
     <configuration name="APIKey.ApiKeyTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
@@ -53,11 +54,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoRestUsersTest.deleteUserNegativeTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="APIKey.weatherAPI" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssured" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GoRestUsersTest" />
-      <option name="METHOD_NAME" value="deleteUserNegativeTest" />
+      <option name="MAIN_CLASS_NAME" value="APIKey" />
+      <option name="METHOD_NAME" value="weatherAPI" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -103,11 +104,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.APIKey.weatherAPI" />
         <item itemvalue="TestNG.APIKey.ApiKeyTest" />
         <item itemvalue="TestNG.ZippoTest.extractWithJsonPath2" />
         <item itemvalue="TestNG.ZippoTest.extractWithJsonPath1" />
         <item itemvalue="TestNG.ZippoTest.extractWithJsonPath" />
-        <item itemvalue="TestNG.GoRestUsersTest.deleteUserNegativeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695250611075</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Rest">
+      <option name="closed" value="true" />
+      <created>1695250640722</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1695250640722</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
